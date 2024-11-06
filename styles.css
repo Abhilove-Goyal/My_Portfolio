@@ -1,0 +1,627 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+.resume {
+    margin-top: 20px;
+}
+
+.resume-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid rgb(244, 49, 49); /* Red border */
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.resume-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(244, 49, 49);
+    transition: left 0.4s ease;
+    z-index: 0;
+}
+
+.resume-link:hover::before {
+    left: 0;
+}
+
+.resume-link span {
+    position: relative;
+    z-index: 1;
+    color: white; /* Ensure text color stays white */
+    transition: color 0.4s ease;
+}
+
+.resume-link:hover span {
+    color: white; /* Maintain white text color on hover */
+}
+
+
+/*lllllllllllllllllllllllllllllllllll*/
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide navigation links on mobile */
+    }
+
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-photo img {
+        width: 80%; /* Reduce image size on mobile */
+    }
+
+    .section-home h1 {
+        font-size: 1.5em; /* Adjust font size */
+    }
+
+    .cards-container {
+        display: grid;
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 10px;
+    }
+
+    .socials, .social-icons {
+        justify-content: center;
+    }
+
+    /* Contact Section: "Let's Connect" styling */
+    .section-contact {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .contact-box h2 {
+        font-size: 1.8em; /* Adjust heading size */
+        margin-bottom: 15px;
+    }
+
+    .form-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .form-icon form {
+        width: 100%;
+    }
+
+    .form-icon input,
+    .form-icon textarea,
+    .form-icon button {
+        width: 90%; /* Adjust input fields to be full width on mobile */
+        max-width: 400px;
+        margin: 5px 0;
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .icon h2 {
+        font-size: 1.6em; /* Adjust "Let's Connect" heading */
+        margin-top: 20px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding-top: 10px;
+    }
+}
+
+
+
+/*lllllllllllllllllllllllllllllllllll*/
+* {
+    color: rgb(248, 241, 232);
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: linear-gradient(to right, #010102, #aeb1c5);
+}
+
+.typed-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgb(245, 59, 59);
+    overflow: hidden; 
+    white-space: nowrap;
+    display: inline-block; 
+    line-height: 1.5rem; 
+    min-height: 1.5rem;  
+    vertical-align: middle;
+}
+
+.cursor {
+    width: 5px;
+    height: 3rem;
+    background-color: rgb(245, 59, 59);
+    animation: blink 0.7s step-end infinite; 
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 50px; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    margin-bottom: -5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; 
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+}
+
+.nav-links a:hover {
+    color: #e93c29;
+    transition-duration: 0.2s;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* .logo {
+    font-size: 24px; 
+    font-weight: bold;
+    color: #000; 
+} */
+.red-letter {
+    font-size: 1.8rem;
+    color: rgb(253, 76, 43 ); /* Style for the letter 'A' */
+}
+
+.blue-letter {
+    font-size: 1.8rem;
+    color: rgb(76, 153, 201); /* Style for the letter 'G', or choose any other color */
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    font-size: 2rem; /* Adjust size as necessary */
+}
+
+/* Home Section Styles */
+.section-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 50px; 
+    position: relative;
+    background-image: url('wallpaperflare.com_wallpaper\ (3).jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    text-align: left;
+}
+
+.section-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; 
+}
+
+.intro {
+    max-width: 980px;
+    position: relative; 
+    z-index: 2; 
+}
+
+.intro h1 {
+    color: antiquewhite;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.intro h2 {
+    color: antiquewhite;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section-home p{
+    font-size: 1.1rem;
+}
+.typed-text {
+    font-size: 3rem;
+    font-weight: 400;
+    color: rgb(245, 59, 59);
+    overflow: hidden; 
+    white-space: nowrap; 
+    display: inline-flex; 
+    align-items: center; 
+    line-height: 3rem; 
+    min-height: 100px; 
+}
+
+.profile-photo {
+    margin-left: 40px;
+    flex-shrink: 0; 
+    width: 500px; 
+}
+
+.profile-photo img {
+    width: 100%; 
+    max-width: 400px; 
+    height: auto;
+    border-radius: 50%;
+    border: 11px solid #2d303b;
+    box-shadow: 0 25px 45px rgba(238, 228, 228, 0.3);
+}
+
+.section {
+    margin: 50px 90px;
+    padding: 20px;
+    background: linear-gradient(to right, #161f32, #b6bce3);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.section h2 {
+    /* text-decoration: underline; */
+    font-size: 3rem;
+    color: #f5f0f7;
+    font-weight: 300;
+    margin-bottom: 20px;
+    /* font-style: italic; */
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center;
+    align-items: stretch; 
+}
+
+.card {
+    background-color: #031922;
+    border: 1px solid #e2e2e2; 
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 350px; 
+    position: relative;
+    overflow: hidden;
+    opacity: 0; 
+    transform: translateY(50px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.card.show {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.card:hover {
+    box-shadow: 0px 0px 20px rgb(236, 91, 91);
+    transform: translateY(-10px); 
+}
+
+.card-image {
+    width: 100%; 
+    max-width: 150px; 
+    height: auto; 
+    margin-bottom: 10px; 
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #e1dede;
+    line-height: 1.5; 
+    padding: 3px 10px; 
+}
+/* Default card image styling */
+.card .card-image {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+
+/* Specific styling for #experience section images */
+#experience .card .card-image {
+    max-width: 250px; /* Updated width for #experience section */
+    height: auto;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column;
+        position: absolute; /* Make it overlay */
+        top: 60px; /* Adjust according to header height */
+        right: 0; /* Align to the right */
+        background-color: #333; /* Match the header background */
+        z-index: 999; /* Ensure it appears above other content */
+        width: 200px; /* Set width for dropdown */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .section-home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-photo img {
+        width: 250px; 
+    }
+
+    .cards-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; /* Full width for smaller screens */
+        margin-bottom: 20px; /* Space below each card */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background: none; 
+    }
+
+    .card-image {
+        max-width: 100px; 
+    }
+}
+.contact-container {
+    text-align: center;
+}
+
+.contact-container h1 {
+    font-size: 3em;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+/* Fixed Size for Cards */
+.contact-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    width: 370px;
+    height: 180px; /* Ensuring consistent height */
+    display: inline-block;
+    vertical-align: top; /* Ensures alignment in a row */
+    margin: 10px;
+    margin-bottom: 100px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect */
+.contact-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(255, 45, 85, 0.5);
+}
+
+/* Icon Styling */
+.icon {
+    font-size: 2em;
+    color: #ff2d55;
+    margin-bottom: 10px;
+}
+
+/* Text inside cards */
+.contact-card h2 {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.contact-card p {
+    font-size: 1em;
+    color: #bbbbbb;
+}
+
+/* Hover effect for interactive elements */
+.contact-card:hover h2, .contact-card:hover p {
+    color: #ff2d55;
+}
+
+/* Adding animations */
+.contact-card:hover .icon {
+    animation: bounce 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 36px 72px;
+    background: linear-gradient(98deg, #282626 0%, #101010 50%, #090808 100%);
+    color: #fff;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+}
+
+footer .container .sec {
+    margin-right: 30px;
+}
+
+footer .container .aboutus,
+footer .container .quicklinks,
+footer .container .contact {
+    flex: 1;
+    min-width: 250px;
+}
+
+footer h2 {
+    color: #e74c3c;
+    margin-bottom: 10px;
+    border-bottom: 2px solid red;
+    display: inline-block;
+}
+
+p, ul {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color: #e43b29;
+    transition-duration: 0.2s;
+    text-decoration: underline;
+}
+
+.socials {
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+}
+
+.socials li a {
+    display: inline-block;
+    width: 50px;           /* Adjust the size of the circle */
+    height: 50px;          /* Same as width to make it circular */
+    line-height: 50px;     /* Center icon vertically */
+    text-align: center;    /* Center icon horizontally */
+    border: 2px solid transparent; /* No border initially */
+    border-radius: 50%;    /* Circular shape */
+    transition: border 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.socials li a i {
+    font-size: 27px; 
+    color: #d79613;  /* Default icon color */
+}
+
+.socials li a:hover {
+    border: 2px solid red; /* Red border on hover */
+}
+
+.socials li a:hover i {
+    color: red; /*to red on hover */
+}
+/* Change icon color */
+
+
+.contact .infom li span i {
+    font-size: 30px; 
+    color: #d79613;
+}
+
+.contact .infom li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.contact .infom li span:nth-child(1) {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.quicklinks ul li {
+    transition-duration: 0.2s;
+    /* text-decoration: underline; */
+    color: antiquewhite;
+}
+
+
